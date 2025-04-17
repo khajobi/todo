@@ -20,7 +20,7 @@ internal sealed class DeleteTodoTaskHandler(ITodoTaskRepository todoTaskReposito
                 Id = request.Id,
                 Type = nameof(TodoTask),
             };
-            
+
             if (todoTaskToDelete.Status != TodoTaskStatus.Completed)
             {
                 throw new ValidationException($"A todo task with Id = {request.Id} is not completed.",
@@ -33,7 +33,7 @@ internal sealed class DeleteTodoTaskHandler(ITodoTaskRepository todoTaskReposito
                     }
                 ]);
             }
-            
+
             todoTaskRepository.Delete(todoTaskToDelete);
         });
 

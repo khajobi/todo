@@ -8,12 +8,12 @@ internal sealed class GetTodoTaskListHandler(ITodoTaskRepository todoTaskReposit
     public Task<GetTodoTaskListQueryResponse> Handle(GetTodoTaskListQuery request, CancellationToken cancellationToken)
     {
         var todoTasks = todoTaskRepository.GetList().ToList();
-        
+
         var response = new GetTodoTaskListQueryResponse
         {
             TodoTasks = todoTasks
         };
-        
+
         return Task.FromResult(response);
     }
 }

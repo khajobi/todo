@@ -10,7 +10,7 @@ internal sealed class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValid
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
         var context = new ValidationContext<TRequest>(request);
-        
+
         var validationResults = await Task.WhenAll(
             validators.Select(validator => validator.ValidateAsync(context, cancellationToken)));
 
@@ -23,7 +23,7 @@ internal sealed class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValid
         {
             throw new ValidationException(failures);
         }
-        
+
         return await next(cancellationToken);
     }
 }

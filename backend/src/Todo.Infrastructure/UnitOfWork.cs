@@ -5,7 +5,7 @@ namespace Todo.Infrastructure;
 public class UnitOfWork : IUnitOfWork
 {
     private static readonly Lock Lock = new();
-    
+
     public void ExecuteWithLock(Action action)
     {
         lock (Lock)

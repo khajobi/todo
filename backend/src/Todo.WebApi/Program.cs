@@ -51,9 +51,9 @@ builder.Services.AddOpenApi();
 try
 {
     var app = builder.Build();
-    
+
     app.UseCors("AllowAll");
-    
+
     app.UseMiddleware<ExceptionMiddleware>();
 
     // Configure the HTTP request pipeline.
@@ -65,11 +65,11 @@ try
     app.UseSwagger();
 
     app.UseSwaggerUI();
-    
+
     app.UseHttpsRedirection();
 
     app.UseAuthorization();
-    
+
     app.MapControllers();
 
     app.Run();

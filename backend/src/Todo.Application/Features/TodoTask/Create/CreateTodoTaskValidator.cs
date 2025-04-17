@@ -9,7 +9,7 @@ public sealed class CreateTodoTaskValidator : AbstractValidator<CreateTodoTaskCo
         RuleFor(r => r.Name)
             .NotEmpty()
             .MaximumLength(50);
-        
+
         RuleFor(r => r.Priority)
             .GreaterThanOrEqualTo(1)
             .LessThanOrEqualTo(100);

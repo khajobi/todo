@@ -20,19 +20,19 @@ public class TodoTaskController(IMediator mediator) : ControllerBase
             Name = createTodoTaskDto.Name,
             Priority = createTodoTaskDto.Priority
         };
-        
+
         var response = await mediator.Send(command, cancellationToken);
 
         return response.CreatedTodoTask.ToDto();
     }
-    
+
     [HttpGet]
     public async Task<IEnumerable<TodoTaskDto>> GetListAsync(CancellationToken cancellationToken)
     {
         var query = new GetTodoTaskListQuery();
-        
+
         var response = await mediator.Send(query, cancellationToken);
-        
+
         return response.TodoTasks
             .Select(t => t.ToDto())
             .ToList();
@@ -57,7 +57,7 @@ public class TodoTaskController(IMediator mediator) : ControllerBase
     public async Task DeleteAsync(int id, CancellationToken cancellationToken)
     {
         var command = new DeleteTodoTaskCommand { Id = id };
-        
+
         await mediator.Send(command, cancellationToken);
     }
 }

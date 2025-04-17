@@ -18,7 +18,7 @@ internal sealed class EditTodoTaskHandler(ITodoTaskRepository todoTaskRepository
                 Id = request.Id,
                 Type = nameof(TodoTask),
             };
-            
+
             var todoTaskWithSameName = todoTaskRepository.GetByName(request.NewName);
             if (todoTaskWithSameName != null && todoTaskWithSameName.Id != todoTask.Id)
             {
@@ -32,7 +32,7 @@ internal sealed class EditTodoTaskHandler(ITodoTaskRepository todoTaskRepository
                     }
                 ]);
             }
-            
+
             todoTaskRepository.Update(todoTask, request.NewName, request.NewPriority, request.NewStatus);
             return todoTask;
         });
@@ -41,7 +41,7 @@ internal sealed class EditTodoTaskHandler(ITodoTaskRepository todoTaskRepository
         {
             EditedTodoTask = updatedTodoTask
         };
-        
+
         return Task.FromResult(response);
     }
 }

@@ -9,7 +9,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddPersistence(this IServiceCollection services)
     {
         services.AddScoped<ITodoTaskRepository, TodoTaskRepository>();
-        
+
         return services;
     }
 }

@@ -13,7 +13,7 @@ public class TodoTaskRepository : ITodoTaskRepository
         new() { Id = 3, Name = "Task 3", Priority = 1, Status = TodoTaskStatus.InProgress },
         new() { Id = 4, Name = "Task 4", Priority = 1, Status = TodoTaskStatus.Completed }
     ];
-    
+
     public TodoTask Create(string name, int priority)
     {
         var newTodoTask = new TodoTask
@@ -23,7 +23,7 @@ public class TodoTaskRepository : ITodoTaskRepository
             Priority = priority,
             Status = TodoTaskStatus.NotStarted
         };
-        
+
         TodoTasks.Add(newTodoTask);
         return newTodoTask;
     }
@@ -32,12 +32,12 @@ public class TodoTaskRepository : ITodoTaskRepository
     {
         return TodoTasks.SingleOrDefault(t => t.Id == id);
     }
-    
+
     public TodoTask? GetByName(string name)
     {
         return TodoTasks.SingleOrDefault(t => string.Equals(t.Name, name, StringComparison.CurrentCultureIgnoreCase));
     }
-    
+
     public IEnumerable<TodoTask> GetList()
     {
         return TodoTasks;

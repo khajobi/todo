@@ -9,7 +9,7 @@ public sealed class EditTodoTaskValidator : AbstractValidator<EditTodoTaskComman
         RuleFor(r => r.NewName)
             .NotEmpty()
             .MaximumLength(50);
-        
+
         RuleFor(r => r.NewPriority)
             .GreaterThanOrEqualTo(1)
             .LessThanOrEqualTo(100);
