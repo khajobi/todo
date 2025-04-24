@@ -4,6 +4,7 @@ import { SvgIconComponent } from "@mui/icons-material";
 import { SvgIconProps } from "@mui/material/SvgIcon";
 
 import { ActionIconButton } from "@/components";
+import { TodoTask } from "@/types/TodoTask";
 
 export type TodoTaskListTableActionProps = {
     id: React.Key;
@@ -12,8 +13,8 @@ export type TodoTaskListTableActionProps = {
     onClick: () => void;
 };
 
-type TableHeaderProps = {
-    id: React.Key;
+export type TableHeaderProps = {
+    id: keyof TodoTask;
     label: string;
 };
 

@@ -13,7 +13,7 @@ import {
 } from "@/components";
 import { TodoTask } from "@/types/TodoTask";
 import { TodoTaskActionProps } from "./TodoTaskListTableRow";
-import { TodoTaskListTableActionProps } from "./TodoTaskListTableHeader";
+import { TableHeaderProps, TodoTaskListTableActionProps } from "./TodoTaskListTableHeader";
 import { EditTodoTask } from "@/types/EditTodoTask";
 import { CreateTodoTask } from "@/types/CreateTodoTask";
 import { useDialog } from "@/hooks";
@@ -60,7 +60,7 @@ const TodoTaskListTable = ({
         [setSelectedTodoTask, openEditDialog],
     );
 
-    const headers = useMemo(
+    const headers: TableHeaderProps[] = useMemo(
         () => [
             { id: "id", label: "#" },
             { id: "name", label: "Name" },
